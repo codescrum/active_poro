@@ -37,6 +37,21 @@ describe 'ActivePoro' do
           expect(car.driver).to eq(driver)
         end
 
+        context 'when the car is transferred to another owner/driver' do
+          let(:another_driver){ Driver.new('Bob') }
+          it 'detaches the car from the previous owner' do
+            car.driver = driver
+            expect(driver.car).to eq(car)
+            expect(car.driver).to eq(driver)
+
+            # car changes owner
+            car.driver = another_driver
+            expect(driver.car).to be_nil
+            expect(car.driver).to eq(another_driver)
+            expect(another_driver.car).to eq(car)
+          end
+        end
+
       end
 
       context 'has_many + belongs_to' do

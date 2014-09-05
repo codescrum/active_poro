@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'pry'
 
 ######################
 require 'active_poro'#

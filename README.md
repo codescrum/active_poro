@@ -82,6 +82,8 @@ another_dog.fleas
 #=> [flea_b] # simplified output, not actual output on the console
 ```
 
+This also works with has_one and belongs_to as expected.
+
 ## Contributing
 
 1. Fork it ( https://github.com/codescrum/active_poro/fork )

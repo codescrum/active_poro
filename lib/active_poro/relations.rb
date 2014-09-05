@@ -11,8 +11,12 @@ module ActivePoro
 
         # define setter method
         define_method "#{target_name}=" do |members|
+
+          # nil to empty
+          members ||= []
+
           # set the instance variable only if I am now the rightful owner
-          instance_variable_set("@#{target_name}", members || [])
+          instance_variable_set("@#{target_name}", members)
           reflected_association_name = self.class.name.underscore
           members.each do |member|
 
@@ -47,10 +51,10 @@ module ActivePoro
         # define setter method
         define_method "#{target_name}=" do |member|
           reflected_association_name = self.class.name.underscore
-          unless member.send(reflected_association_name) == self
+          if member.respond_to?(reflected_association_name) && member.send(reflected_association_name) != self
             member.send "#{reflected_association_name}=", self
           end
-          instance_variable_set("@#{target_name}", (member || nil))
+          instance_variable_set("@#{target_name}", member)
         end
       end
 
@@ -66,10 +70,8 @@ module ActivePoro
           instance_variable_set("@#{target_name}", member)
           reflected_association_name = self.class.name.underscore
           # add myself to reflected association
-          if member.respond_to? reflected_association_name
-            unless member.send(reflected_association_name) == self
-              member.send("#{reflected_association_name}=", self)
-            end
+          if member.respond_to?(reflected_association_name) && member.send(reflected_association_name) != self
+            member.send("#{reflected_association_name}=", self)
           elsif member.respond_to? reflected_association_name.pluralize
             reflected_members = member.send(reflected_association_name.pluralize)
             unless reflected_members.include? self

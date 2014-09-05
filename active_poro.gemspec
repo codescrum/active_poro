@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'activeporo/version'
+require 'active_poro/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "activeporo"
-  spec.version       = Activeporo::VERSION
+  spec.name          = "active_poro"
+  spec.version       = ActivePoro::VERSION
   spec.authors       = ["Miguel Diaz"]
   spec.email         = ["miguel.diaz@codescrum.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = %q{Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"

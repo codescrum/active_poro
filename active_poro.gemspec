@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["miguel.diaz@codescrum.com"]
   spec.summary       = %q{Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/codescrum/active_poro"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

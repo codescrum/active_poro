@@ -41,7 +41,7 @@ module ActivePoro
       def has_one(target_name)
         # define getter method
         define_method target_name do
-          instance_variable_get("@#{target_name}") || []
+          instance_variable_get("@#{target_name}")
         end
 
         # define setter method
@@ -50,7 +50,7 @@ module ActivePoro
           unless member.send(reflected_association_name) == self
             member.send "#{reflected_association_name}=", self
           end
-          instance_variable_set("@#{target_name}", member || [])
+          instance_variable_set("@#{target_name}", (member || nil))
         end
       end
 

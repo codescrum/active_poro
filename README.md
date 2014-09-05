@@ -25,7 +25,62 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You may use ActivePoro::Model as a mixin to enable relations/associations to be built between POROs
+Currently supported associations:
+
+- has_many
+- has_one
+- belongs_to
+
+Example:
+
+```ruby
+require 'active_poro'
+
+class Dog
+  include ActivePoro::Model
+  has_many :fleas
+end
+
+class Flea
+  include ActivePoro::Model
+  belongs_to :dog
+end
+```
+
+Now, with that in place you should be able to do
+
+```ruby
+dog = Dog.new
+flea_a = Flew.new
+flea_b = Flew.new
+
+# associate the fleas with the dog
+dog.fleas = [flea_a, flea_b]
+
+# now fleas have the dog associated back
+flea_a.dog == dog
+#=> true
+
+# now fleas have the dog associated back
+flea_b.dog == dog
+#=> true
+
+# if a new dog is created
+another_dog = Dog.new
+
+# and flea_b for example, jumps to it (i.e. is associated to this other dog)
+flea_b.dog = another_dog
+
+# then dog does not have flea_b now
+dog.fleas
+#=> [flea_a] # simplified output, not actual output on the console
+
+# and another_dog gets flea_b
+another_dog.fleas
+
+#=> [flea_b] # simplified output, not actual output on the console
+```
 
 ## Contributing
 

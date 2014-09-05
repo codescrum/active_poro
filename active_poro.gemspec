@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Miguel Diaz"]
   spec.email         = ["miguel.diaz@codescrum.com"]
   spec.summary       = %q{Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Ever wanted to have active-record like relations in your POROs?, here is a proposed solution.}
   spec.homepage      = "https://github.com/codescrum/active_poro"
   spec.license       = "MIT"
 
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+
+  spec.add_runtime_dependency('activesupport')
 end

@@ -52,8 +52,8 @@ Now, with that in place you should be able to do
 
 ```ruby
 dog = Dog.new
-flea_a = Flew.new
-flea_b = Flew.new
+flea_a = Flea.new
+flea_b = Flea.new
 
 # associate the fleas with the dog
 dog.fleas = [flea_a, flea_b]

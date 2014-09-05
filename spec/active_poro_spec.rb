@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe 'ActivePoro' do
   context 'Model' do
-
-    context 'has_many' do
+    context 'relations' do
       before do
         class Dog < BaseTestClass
           include ActivePoro::Model

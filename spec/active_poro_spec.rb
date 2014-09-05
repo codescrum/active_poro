@@ -87,9 +87,31 @@ describe 'ActivePoro' do
 
           it 'correctly sets the right dog to each flea' do
             dog_with_fleas.fleas.each do |flea|
-              expect(flea.dog).to eq(big_dog)
+              expect(flea.dog).to eq(dog_with_fleas)
             end
           end
+
+          it 'has a mathod for adding and removing fleas' do
+            expect(big_dog).to respond_to :add_flea
+            expect(big_dog).to respond_to :remove_flea
+          end
+
+          it 'can be add more fleas to it via #add_flea' do
+            big_dog.add_flea flea_a
+            expect(big_dog.fleas).to eq([flea_a])
+
+            big_dog.add_flea flea_b
+            expect(big_dog.fleas).to eq([flea_a, flea_b])
+          end
+
+          it 'can be removed more fleas from it via #remove_flea' do
+            dog_with_fleas.remove_flea(flea_a)
+            expect(dog_with_fleas.fleas).to eq([flea_b])
+
+            dog_with_fleas.remove_flea(flea_b)
+            expect(dog_with_fleas.fleas).to eq([])
+          end
+
         end
 
         context 'when fleas jump onto big_dog' do

@@ -40,6 +40,17 @@ module ActivePoro
 
           end
         end
+
+        # define the "add_<name>" method
+        define_method "add_#{target_name.to_s.singularize}" do |member|
+          send("#{target_name}=", (send(target_name) + [member]).uniq)
+        end
+
+        # define the "remove_<name>" method
+        define_method "remove_#{target_name.to_s.singularize}" do |member|
+          send("#{target_name}=", (send(target_name) - [member]).uniq)
+        end
+
       end
 
       def has_one(target_name)

@@ -32,7 +32,7 @@ describe 'ActivePoro' do
         end
 
         it 'associates the driver to the car and viceversa' do
-          driver.car = car
+          car.driver = driver
           expect(driver.car).to eq(car)
           expect(car.driver).to eq(driver)
         end

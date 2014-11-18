@@ -1,10 +1,11 @@
+[![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+
+[![Code Climate](https://codeclimate.com/github/codescrum/active_poro/badges/gpa.svg)](https://codeclimate.com/github/codescrum/active_poro)
+
+[![Test Coverage](https://codeclimate.com/github/codescrum/active_poro/badges/coverage.svg)](https://codeclimate.com/github/codescrum/active_poro)
+
 # active_poro
 Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect
-
-Important!
-----------
-
-This project is under active development
 
 
 ## Installation

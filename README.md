@@ -1,4 +1,4 @@
-[![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+[![Gem Version](https://badge.fury.io/rb/active_poro.svg)](http://badge.fury.io/rb/active_poro)
 [![Code Climate](https://codeclimate.com/github/codescrum/active_poro/badges/gpa.svg)](https://codeclimate.com/github/codescrum/active_poro)
 [![Test Coverage](https://codeclimate.com/github/codescrum/active_poro/badges/coverage.svg)](https://codeclimate.com/github/codescrum/active_poro)
 

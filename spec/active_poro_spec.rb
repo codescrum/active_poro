@@ -131,26 +131,47 @@ describe 'ActivePoro' do
 
         end
 
-        context 'when a flea jumps between dogs' do
+        context 'when fleas jump between dogs' do
 
           let(:small_dog){ Dog.new('Small dog') }
 
           it 'cannot be in two dogs at the same time' do
             flea_a.dog = big_dog
+            flea_b.dog = big_dog
             expect(flea_a.dog).to eq(big_dog)
-            expect(big_dog.fleas).to eq([flea_a])
+            expect(flea_b.dog).to eq(big_dog)
+            expect(big_dog.fleas).to eq([flea_a, flea_b])
 
-            # flea jumps from big dog to small dog
+            # flea A jumps from big dog to small dog
             flea_a.dog = small_dog
             expect(flea_a.dog).to eq(small_dog)
             expect(small_dog.fleas).to eq([flea_a])
 
             # flea A no longer in big dog
             expect(big_dog.fleas).to_not include(flea_a)
-            expect(big_dog.fleas).to be_empty # sanity check
+            expect(big_dog.fleas).to eq([flea_b])# sanity check
           end
 
         end
+
+        context 'when a dog catches some fleas from another dog' do
+
+          let(:small_dog){ Dog.new('Small dog') }
+
+          it 'the other dog losses part of its fleas' do
+
+            big_dog.fleas = [flea_a, flea_b]
+
+            # small_dog is close enough to bid_dog and it caches a flea
+            small_dog.fleas = [flea_a]
+
+            # flea A no longer in big dog
+            expect(big_dog.fleas).to_not include(flea_a)
+            expect(big_dog.fleas).to eq([flea_b])# sanity check
+          end
+
+        end
+
       end
 
     end

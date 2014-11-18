@@ -4,6 +4,9 @@ module ActivePoro
 
     module ClassMethods
       def has_many(target_name)
+
+
+
         # define getter method
         define_method target_name do
           instance_variable_get("@#{target_name}") || []

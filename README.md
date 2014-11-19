@@ -1,10 +1,9 @@
+# active_poro
+
 [![Gem Version](https://badge.fury.io/rb/active_poro.svg)](http://badge.fury.io/rb/active_poro)
-[![Code Climate](https://codeclimate.com/github/codescrum/active_poro/badges/gpa.svg)](https://codeclimate.com/github/codescrum/active_poro)
 [![Test Coverage](https://codeclimate.com/github/codescrum/active_poro/badges/coverage.svg)](https://codeclimate.com/github/codescrum/active_poro)
 
-# active_poro
 Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect
-
 
 ## Installation
 

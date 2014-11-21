@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ActivePoro::VERSION
   spec.authors       = ["Miguel Diaz"]
   spec.email         = ["miguel.diaz@codescrum.com"]
-  spec.summary       = %q{Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect.}
-  spec.description   = %q{Ever wanted to have active-record like relations in your POROs?, here is a proposed solution.}
+  spec.summary       = %q{Makes possible the use of has_many, has_one, belongs_to associations in POROs as you would expect.}
+  spec.description   = %q{Ever wanted to have active-record like associations in your POROs?, here is a proposed solution.}
   spec.homepage      = "https://github.com/codescrum/active_poro"
   spec.license       = "MIT"
 

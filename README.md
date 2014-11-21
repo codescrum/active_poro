@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/active_poro.svg)](http://badge.fury.io/rb/active_poro)
 [![Test Coverage](https://codeclimate.com/github/codescrum/active_poro/badges/coverage.svg)](https://codeclimate.com/github/codescrum/active_poro)
 
-Makes possible the use of has_many, has_one, belongs_to relations in POROs as you would expect
+Makes possible the use of has_many, has_one, belongs_to associations in POROs as you would expect
 
 ## Installation
 
@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-You may use ActivePoro::Model as a mixin to enable relations/associations to be built between POROs
+You may use ActivePoro::Model as a mixin to enable associations to be built between POROs
 Currently supported associations:
 
 - has_many

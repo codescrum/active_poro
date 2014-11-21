@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'ActivePoro' do
   context 'Model' do
-    context 'relations' do
+    context 'associations' do
 
       context 'has_one + belongs_to' do
         before do

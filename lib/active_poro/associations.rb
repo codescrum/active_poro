@@ -1,5 +1,5 @@
 module ActivePoro
-  module Relations
+  module Associations
     extend ActiveSupport::Concern
 
     module ClassMethods

@@ -18,7 +18,7 @@ module ActivePoro
 
           # set the instance variable only if I am now the rightful owner
           instance_variable_set("@#{target_name}", members)
-          singular_reflection_name = self.class.name.underscore
+          singular_reflection_name = self.class.name.demodulize.underscore
           members.each do |member|
 
             current_owner = member.send(singular_reflection_name)
@@ -65,7 +65,7 @@ module ActivePoro
 
         # define setter method
         define_method "#{target_name}=" do |member|
-          singular_reflection_name = self.class.name.underscore
+          singular_reflection_name = self.class.name.demodulize.underscore
           if member.respond_to?(singular_reflection_name) && member.send(singular_reflection_name) != self
             member.send "#{singular_reflection_name}=", self
           end
@@ -84,7 +84,7 @@ module ActivePoro
           previous_member = instance_variable_get("@#{target_name}")
           instance_variable_set("@#{target_name}", member)
 
-          singular_reflection_name = self.class.name.underscore
+          singular_reflection_name = self.class.name.demodulize.underscore
           plural_reflection_name = singular_reflection_name.pluralize
 
           # add myself to reflected association

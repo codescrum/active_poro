@@ -3,22 +3,24 @@ require 'spec_helper'
 describe 'ActivePoro' do
   context 'Model' do
     context 'associations' do
-
+      
       context 'has_one + belongs_to' do
         before do
-          class Driver < BaseTestClass
-            include ActivePoro::Model
-            has_one :car
-          end
+          module Objects
+            class Driver < BaseTestClass
+              include ActivePoro::Model
+              has_one :car
+            end
 
-          class Car < BaseTestClass
-            include ActivePoro::Model
-            belongs_to :driver
+            class Car < BaseTestClass
+              include ActivePoro::Model
+              belongs_to :driver
+            end
           end
         end
 
-        let(:driver){ Driver.new('Mike') }
-        let(:car){ Car.new('A') }
+        let(:driver){ Objects::Driver.new('Mike') }
+        let(:car){ Objects::Car.new('A') }
 
         it 'initializes unrelated/unassociated' do
           expect(car.driver).to be_nil
@@ -38,7 +40,7 @@ describe 'ActivePoro' do
         end
 
         context 'when the car is transferred to another owner/driver' do
-          let(:another_driver){ Driver.new('Bob') }
+          let(:another_driver){ Objects::Driver.new('Bob') }
           it 'detaches the car from the previous owner' do
             car.driver = driver
             expect(driver.car).to eq(car)
